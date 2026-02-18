@@ -48,11 +48,43 @@ body {
 
 /* Component Styles */
 .nav-link {
-    @apply text-sm font-medium text-[#14281D]/80 hover:text-[#14281D] line-through-animation;
+    color: rgb(20 40 29 / 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #14281D;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .mobile-nav-link {
-    @apply block text-sm font-medium text-[#14281D]/80 hover:text-[#14281D];
+    display: block;
+    color: rgb(20 40 29 / 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: #14281D;
 }
 
 .line-through-animation {
@@ -155,33 +187,67 @@ body {
 
 /* Section Specific Styles */
 .hero-section {
-    @apply relative min-h-screen flex items-center pt-20 overflow-hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    overflow: hidden;
 }
 
 .trust-strip {
-    @apply py-12 border-y border-[#14281D]/5 bg-[#14281D]/[0.02];
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid rgb(20 40 29 / 0.05);
+    border-bottom: 1px solid rgb(20 40 29 / 0.05);
+    background: rgb(20 40 29 / 0.02);
 }
 
 .about-section {
-    @apply py-24 lg:py-32 relative overflow-hidden;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .services-section {
-    @apply py-24 lg:py-32;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 .approach-section {
-    @apply py-24 lg:py-32 bg-[#14281D] relative overflow-hidden;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background: #14281D;
+    position: relative;
+    overflow: hidden;
 }
 
 .founder-section {
-    @apply py-24 lg:py-32;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 .cta-section {
-    @apply py-24 lg:py-32 relative overflow-hidden;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .footer-section {
-    @apply py-12 border-t border-[#14281D]/10;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid rgb(20 40 29 / 0.1);
+}
+
+@media (min-width: 1024px) {
+    .about-section,
+    .services-section,
+    .approach-section,
+    .founder-section,
+    .cta-section {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
 }
