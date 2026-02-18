@@ -5,9 +5,18 @@ lucide.createIcons();
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
-mobileMenuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+const setMobileMenuState = (isOpen) => {
+    if (!mobileMenuToggle || !mobileMenu) return;
+    mobileMenu.classList.toggle('hidden', !isOpen);
+    mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+};
+
+if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('hidden');
+        setMobileMenuState(isOpen);
+    });
+}
 
 // Scroll reveal animation
 const initScrollReveal = () => {
@@ -33,7 +42,7 @@ const initScrollReveal = () => {
 // Navigation scroll effects
 const initNavScroll = () => {
     const nav = document.querySelector('nav');
-    let lastScroll = 0;
+    if (!nav) return;
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
@@ -43,8 +52,6 @@ const initNavScroll = () => {
         } else {
             nav.classList.remove('shadow-sm');
         }
-
-        lastScroll = currentScroll;
     }, { passive: true });
 };
 
@@ -52,15 +59,30 @@ const initNavScroll = () => {
 const initSmoothScrolling = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (!href) return;
+
+            if (href === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setMobileMenuState(false);
+                return;
+            }
+
+            let target = null;
+            try {
+                target = document.querySelector(href);
+            } catch {
+                return;
+            }
+
             if (target) {
+                e.preventDefault();
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
-                // Close mobile menu if open
-                mobileMenu.classList.add('hidden');
+                setMobileMenuState(false);
             }
         });
     });
