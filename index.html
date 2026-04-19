@@ -4,13 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta -->
     <title>rivora labz | Next-Generation Digital Products</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="rivora labz builds next-generation digital products — mobile apps, web applications, and AI integrations that deliver measurable results and drive real business growth.">
+    <meta name="author" content="Narayan Dhingra">
+    <meta name="theme-color" content="#14281D">
+    <link rel="canonical" href="https://rivoralabz.com/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rivoralabz.com/">
+    <meta property="og:title" content="rivora labz | Next-Generation Digital Products">
+    <meta property="og:description" content="Transforming bold ideas into elegant, high-performance solutions that deliver measurable results and drive real business growth.">
+    <meta property="og:image" content="https://rivoralabz.com/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="rivora labz | Next-Generation Digital Products">
+    <meta name="twitter:description" content="Transforming bold ideas into elegant, high-performance solutions that deliver real business growth.">
+    <meta name="twitter:image" content="https://rivoralabz.com/og-image.jpg">
+
+    <!-- Preconnects & Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="narayan-professional.png">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind (CDN — swap for a local build in production) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide icons — pinned minor version for stability -->
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+
+    <!-- Page logic -->
+    <script src="script.js" defer></script>
 </head>
 
 <body class="antialiased">
@@ -141,8 +174,10 @@
                         </div>
                         <div class="relative bg-white/50 backdrop-blur-sm p-8 rounded-3xl border border-[#14281D]/10">
                             <div class="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#14281D]">
-                                <img src="narayan-professional.png" alt="Narayan Dhingra"
-                                    class="w-full h-full object-cover">
+                                <img src="narayan-professional.png" alt="Narayan Dhingra — Founder & CEO of rivora labz"
+                                    class="w-full h-full object-cover"
+                                    width="192" height="192"
+                                    decoding="async">
                             </div>
                             <h3 class="text-3xl font-bold text-[#14281D] text-center mb-2">Narayan Dhingra</h3>
                             <p class="text-lg text-[#14281D]/70 text-center mb-6">Founder & CEO</p>
@@ -345,7 +380,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- script.js is loaded via <head defer> above -->
 </body>
 
 </html>
