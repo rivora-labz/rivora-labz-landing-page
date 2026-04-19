@@ -82,7 +82,7 @@ Cloudflare Pages will pick up the change and deploy within ~30 seconds.
    - **Max file size:** ≤ 200 KB (compress with [Squoosh](https://squoosh.app) or [TinyPNG](https://tinypng.com))
 3. The photo is referenced in `index.html` inside the **Founder** section — no other changes needed.
 
-> ⚠️ `narayan-professional.png` is listed in `.gitignore` — do not commit it if you want to keep it private.
+
 
 ---
 
