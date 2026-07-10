@@ -53,7 +53,7 @@
   }
 
   /* Generic tabs (screen sequence, player/operator modes) */
-  document.querySelectorAll('[data-tabs]').forEach(function (root) {
+  document.querySelectorAll('[role="tablist"]').forEach(function (root) {
     var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
     function activate(tab, focus) {
       tabs.forEach(function (t) {
