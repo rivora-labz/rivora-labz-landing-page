@@ -62,7 +62,7 @@
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
-  --size-display: clamp(2.9rem, 7vw, 5.4rem);
+  --size-display: clamp(2.9rem, 6.5vw, 5.2rem);
   --size-h2: clamp(2rem, 4.2vw, 3.3rem);
   --size-h3: clamp(1.35rem, 2vw, 1.65rem);
   --size-body: 1.0625rem;
@@ -425,7 +425,8 @@ a { color: inherit; }
   align-items: center;
 }
 @media (min-width: 1000px) {
-  .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+  .hero-grid { grid-template-columns: 0.95fr 1.05fr; }
+  .engine-wrap { margin-right: calc(var(--gutter) * -0.75); }
 }
 
 .hero h1 em {
@@ -462,12 +463,13 @@ a { color: inherit; }
 
 .engine-svg .e-label {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   fill: var(--text-faint);
 }
-.engine-svg .e-name { font-family: var(--font-body); font-size: 14px; font-weight: 600; fill: var(--ink); }
+.engine-svg .e-name { font-family: var(--font-body); font-size: 15px; font-weight: 600; fill: var(--ink); }
+.engine-svg .e-caption { font-size: 10.5px; letter-spacing: 0.1em; }
 .engine-svg .e-path { stroke: var(--line-strong); stroke-width: 1.2; fill: none; }
 .engine-svg .e-node { fill: var(--paper); stroke: var(--line-strong); stroke-width: 1.2; }
 .engine-svg .e-core-ring { fill: none; stroke: var(--ink); stroke-width: 2; }
