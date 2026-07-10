@@ -62,7 +62,7 @@
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
-  --size-display: clamp(2.9rem, 6.5vw, 5.2rem);
+  --size-display: clamp(2.9rem, 7vw, 5.9rem);
   --size-h2: clamp(2rem, 4.2vw, 3.3rem);
   --size-h3: clamp(1.35rem, 2vw, 1.65rem);
   --size-body: 1.0625rem;
@@ -419,14 +419,20 @@ a { color: inherit; }
 /* ---------- Hero ---------- */
 .hero { padding-block: clamp(4rem, 9vw, 7.5rem) clamp(3.5rem, 7vw, 6rem); position: relative; overflow: hidden; }
 
-.hero-grid {
+.hero-sub {
   display: grid;
-  gap: clamp(2.5rem, 6vw, 4rem);
-  align-items: center;
+  gap: 2rem clamp(2.5rem, 6vw, 5rem);
+  margin-top: 1.5rem;
 }
 @media (min-width: 1000px) {
-  .hero-grid { grid-template-columns: 0.95fr 1.05fr; }
-  .engine-wrap { margin-right: calc(var(--gutter) * -0.75); }
+  .hero-sub { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+  .hero-sub .hero-actions { margin-top: 0.35rem; }
+}
+
+.hero .engine-wrap {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  max-width: 1120px;
+  margin-inline: auto;
 }
 
 .hero h1 em {
@@ -443,7 +449,7 @@ a { color: inherit; }
 }
 
 .hero-meta {
-  margin-top: 2.75rem;
+  margin-top: 1.75rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.75rem;
