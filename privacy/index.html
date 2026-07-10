@@ -18,9 +18,8 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/fraunces-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script src="/assets/js/main.js" defer></script>
 </head>
@@ -80,7 +79,7 @@
         </ul>
 
         <h2>Third-party resources</h2>
-        <p>Pages load web fonts from Google Fonts (fonts.googleapis.com and fonts.gstatic.com). When your browser requests those files, Google receives your IP address as part of the standard request. See <a href="https://policies.google.com/privacy" class="text-link" target="_blank" rel="noopener">Google's privacy policy</a>. The site is served through Cloudflare's network, which processes requests to deliver the pages; see <a href="https://www.cloudflare.com/privacypolicy/" class="text-link" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</p>
+        <p>Fonts are self-hosted, so no font provider sees your requests. The site is served through Cloudflare's network, which processes requests to deliver the pages; see <a href="https://www.cloudflare.com/privacypolicy/" class="text-link" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</p>
 
         <h2>Email you send us</h2>
         <p>If you email us, we keep the correspondence for as long as the conversation is useful, use it only to reply and follow up, and never sell or share it for marketing. Ask us to delete a thread and we will.</p>
@@ -108,7 +107,7 @@
           <p>A founder-led product engine building digital ventures from the UAE for the world.</p>
         </div>
         <nav class="footer-col" aria-label="Company">
-          <h4>Company</h4>
+          <h2 class="footer-h">Company</h2>
           <ul>
             <li><a href="/about/">About</a></li>
             <li><a href="/capabilities/">Capabilities</a></li>
@@ -117,7 +116,7 @@
           </ul>
         </nav>
         <nav class="footer-col" aria-label="Ventures">
-          <h4>Ventures</h4>
+          <h2 class="footer-h">Ventures</h2>
           <ul>
             <li><a href="/ventures/snook-a-look/">Snook A Look</a></li>
             <li><a href="/ventures/#flash-bikes">Flash Bikes</a></li>
@@ -126,7 +125,7 @@
           </ul>
         </nav>
         <nav class="footer-col" aria-label="Connect">
-          <h4>Connect</h4>
+          <h2 class="footer-h">Connect</h2>
           <ul>
             <li><a href="https://www.linkedin.com/in/narayandhingra/" target="_blank" rel="noopener">LinkedIn</a></li>
             <li><a href="https://github.com/Narayan-Dhingra" target="_blank" rel="noopener">GitHub</a></li>

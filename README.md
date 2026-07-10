@@ -1,4 +1,4 @@
-# Rivora Labz — Website
+# Rivora Labz: Website
 
 > **Live site:** [rivoralabz.com](https://rivoralabz.com)
 

@@ -1,4 +1,4 @@
-/* Rivora Labz — shared page logic (no dependencies) */
+/* Rivora Labz shared page logic (no dependencies) */
 (function () {
   'use strict';
 
