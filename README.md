@@ -1,8 +1,8 @@
-# rivora labz — Landing Page
+# Rivora Labz — Website
 
 > **Live site:** [rivoralabz.com](https://rivoralabz.com)
 
-The official landing page for **rivora labz**, a next-generation digital product studio building mobile apps, web applications, and AI integrations.
+The official website of **Rivora Labz**, a founder-led product engine in the UAE: internal ventures, technical experiments, and selective client partnerships.
 
 ---
 
@@ -10,92 +10,70 @@ The official landing page for **rivora labz**, a next-generation digital product
 
 | Layer | Technology |
 |---|---|
-| Markup | HTML5 (semantic) |
-| Styling | Vanilla CSS (`style.css`) + Tailwind CSS (CDN) |
-| Icons | [Lucide](https://lucide.dev) (UMD, pinned version) |
-| Fonts | Inter — via Google Fonts |
-| Logic | Vanilla JavaScript (`script.js`) |
+| Markup | Static HTML5, one file per route |
+| Styling | Hand-written CSS design system (`assets/css/main.css`), no framework |
+| Fonts | Fraunces + Inter via Google Fonts, system mono for labels |
+| Icons | Inline SVG (no icon CDN) |
+| Logic | Vanilla JavaScript (`assets/js/main.js`), no dependencies |
 | Hosting | Cloudflare Pages (auto-deploy from GitHub) |
+
+No build step. No Tailwind. No trackers.
 
 ---
 
-## Project Structure
+## Routes
 
 ```
-Landing Page/
-├── index.html               # Main page (all sections)
-├── style.css                # Custom CSS (animations, noise, gradients)
-├── script.js                # JS — scroll reveal, nav, smooth scroll
-├── narayan-professional.png # Founder profile photo (not committed)
-├── og-image.png             # Social share / Open Graph image (optional)
-└── README.md                # This file
+/                        Home (Product Engine story)
+/ventures/               Venture pipeline with honest statuses
+/ventures/snook-a-look/  Flagship venture product story
+/capabilities/           What the engine is good at
+/how-we-build/           Operating system: stages, fleet, principles
+/about/                  Company + founder
+/contact/                Product conversation form (mailto compose, no backend)
+/privacy/  /terms/       Legal
+/404.html                Not-found page (Cloudflare Pages picks it up)
 ```
+
+Shared chrome (nav/footer) is duplicated per page by design; if you change it, change it everywhere.
 
 ---
 
 ## Local Development
 
-No build step required — it's a static site.
-
 ```bash
-# Option 1: VS Code Live Server extension (recommended)
-# Right-click index.html → "Open with Live Server"
-
-# Option 2: Python (built-in)
 python3 -m http.server 8080
-# then open http://localhost:8080
-
-# Option 3: Node (npx)
-npx serve .
+# open http://localhost:8080
 ```
+
+Any static server works. Directory-style URLs (`/about/`) resolve to `index.html` files.
 
 ---
 
 ## Deployment
 
-The site is deployed automatically via **Cloudflare Pages** on every push to `main`.
+Cloudflare Pages deploys automatically:
 
-| Setting | Value |
+| Trigger | Result |
 |---|---|
-| Build command | *(none — static site)* |
-| Build output directory | `/` |
-| Root directory | `/` |
+| Push to `main` | Production deploy to rivoralabz.com |
+| Push to any other branch | Preview at `<branch>.rivora-labz-landing-page.pages.dev` |
 
-To deploy manually, push to `main`:
+Build command: none. Output directory: `/`.
 
-```bash
-git add .
-git commit -m "your message"
-git push origin main
-```
-
-Cloudflare Pages will pick up the change and deploy within ~30 seconds.
+`_headers` sets security headers and long-lived caching for `/assets/*`.
 
 ---
 
-## Adding / Updating the Profile Photo
+## Design System Notes
 
-1. Save your photo as `narayan-professional.png` in the project root.
-2. Recommended specs:
-   - **Format:** PNG (or JPEG — update `src` in `index.html` accordingly)
-   - **Size:** At least **500 × 500 px**, square crop preferred
-   - **Max file size:** ≤ 200 KB (compress with [Squoosh](https://squoosh.app) or [TinyPNG](https://tinypng.com))
-3. The photo is referenced in `index.html` inside the **Founder** section — no other changes needed.
-
-
-
----
-
-## SEO & Performance Notes
-
-- **Meta description**, **Open Graph**, and **Twitter Card** tags are set in `<head>`.
-- Update `og:image` → upload an actual `og-image.png` (1200 × 630 px) to the repo root.
-- The Lucide CDN version is **pinned** (`@0.468.0`) — bump it intentionally when upgrading.
-- Both `lucide.min.js` and `script.js` are loaded with `defer` — no render-blocking scripts.
-- The profile image has `fetchpriority="high"` and a `<link rel="preload">` for faster LCP.
+- Brand palette is locked: ink `#14281D` on cream `#FFFCDC`, gold accent `#E4B54A` (drawn from the Snook A Look product UI).
+- All colors, spacing, and motion tokens live in `:root` in `assets/css/main.css`.
+- Venture status badges: `status--live`, `status--building`, `status--prototype`, `status--rnd`, `status--exploration`.
+- Motion respects `prefers-reduced-motion`; the Product Engine animation pauses off-screen.
 
 ---
 
 ## License
 
-© 2026 rivora labz. All rights reserved.
+© 2026 Rivora Labz FZE LLC. All rights reserved.
