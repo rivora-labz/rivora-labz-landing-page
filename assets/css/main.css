@@ -948,3 +948,10 @@ a { color: inherit; }
 
 /* No-JS: content always visible */
 .no-js .reveal { opacity: 1; transform: none; }
+
+/* No-JS: mobile navigation stays reachable. The toggle is inert without
+   script, so hide it and show the route list expanded instead. Desktop
+   (>=900px) keeps its inline links; the !important display:none on
+   .mobile-menu there still wins. */
+.no-js .menu-toggle { display: none; }
+.no-js .mobile-menu { display: block; }

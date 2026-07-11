@@ -4,5 +4,18 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: DENY
 
-/assets/*
+# Content-stable binary assets: safe to cache aggressively. A changed
+# screenshot or font ships under a new filename.
+/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS and JS are not fingerprinted: short browser cache with
+# revalidation so fixes reach returning visitors promptly.
+/assets/css/*
+  Cache-Control: public, max-age=14400, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=14400, must-revalidate
