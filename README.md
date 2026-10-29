@@ -37,6 +37,8 @@ No build step. No Tailwind. No trackers.
 
 Shared chrome (nav/footer) is duplicated per page by design; if you change it, change it everywhere.
 
+CSS and JS links carry `?v=<hash>` so Cloudflare's edge and browsers pick up changes at once. After editing `main.css` or `main.js`, bump it on every page: the value is the first 8 hex chars of the SHA-1 of `main.css` + `main.js` concatenated.
+
 ---
 
 ## Local Development
