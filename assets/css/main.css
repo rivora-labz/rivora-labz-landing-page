@@ -705,7 +705,8 @@ a { color: inherit; }
 .on-dark .browser-bar { border-bottom-color: var(--dark-line); color: var(--on-dark-faint); }
 .browser-bar svg { flex: none; }
 .browser-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.browser-frame img {
+.browser-frame img,
+.browser-frame video {
   display: block;
   width: 100%;
   height: auto;
