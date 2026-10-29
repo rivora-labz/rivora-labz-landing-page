@@ -41,6 +41,22 @@
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   }
 
+  /* Ambient product videos: play only while on screen, never under reduced motion */
+  var ambient = document.querySelectorAll('video[data-ambient]');
+  if (!reduceMotion && 'IntersectionObserver' in window && ambient.length) {
+    var vo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var play = entry.target.play();
+          if (play && play.catch) play.catch(function () {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    ambient.forEach(function (v) { vo.observe(v); });
+  }
+
   /* Product Engine: run animation only while visible */
   var engine = document.querySelector('.engine-wrap');
   if (engine && 'IntersectionObserver' in window) {
